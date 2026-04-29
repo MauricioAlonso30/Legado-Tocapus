@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="template_tocapus_tb1/template_tocapus_tb1.vcxproj" />
+</Solution>
