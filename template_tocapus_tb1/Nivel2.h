@@ -1,4 +1,5 @@
 #pragma once
+#include <vector>
 #include "Nivel.h"
 #include "Jugador.h"
 #include "Unku.h"
@@ -8,8 +9,7 @@ class Nivel2 : public Nivel {
 private:
     Jugador* jugador;
     Unku* unku;
-    SapaInca* candidatos[10];
-    int cantidadCandidatos;
+    vector<SapaInca*> candidatos;
 public:
     Nivel2() {}
     Nivel2(int numero, string titulo, bool completado, Jugador* jugador) {}

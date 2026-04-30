@@ -1,4 +1,5 @@
 #pragma once
+#include <vector>
 #include "Entidad.h"
 #include "Tocapu.h"
 
@@ -6,8 +7,7 @@ class BloqueNarrativo : public Entidad {
 private:
     int posicionCorrecta;
     string descripcion;
-    Tocapu* tocapus[10];
-    int cantidadTocapus;
+    vector<Tocapu*> tocapus;
 public:
     BloqueNarrativo() {}
     BloqueNarrativo(int id, string nombre, int posicionCorrecta, string descripcion) {}

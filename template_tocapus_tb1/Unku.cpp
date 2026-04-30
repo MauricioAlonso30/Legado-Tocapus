@@ -3,14 +3,12 @@
 Unku::Unku() : Textil() {
     this->filas = 0;
     this->columnas = 0;
-    this->cantidadTocapus = 0;
 }
 
 Unku::Unku(int id, string nombre, string estado, int filas, int columnas)
     : Textil(id, nombre, estado) {
     this->filas = filas;
     this->columnas = columnas;
-    this->cantidadTocapus = 0;
 }
 
 int Unku::getFilas() {

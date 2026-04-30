@@ -2,13 +2,11 @@
 
 Codice::Codice() : Entidad() {
     this->capacidad = 0;
-    this->cantidadActual = 0;
 }
 
 Codice::Codice(int id, string nombre, int capacidad)
     : Entidad(id, nombre) {
     this->capacidad = capacidad;
-    this->cantidadActual = 0;
 }
 
 int Codice::getCapacidad() {

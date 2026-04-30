@@ -1,12 +1,12 @@
 #pragma once
+#include <vector>
 #include "Textil.h"
 #include "BloqueNarrativo.h"
 
 class Quero : public Textil {
 private:
     int cantidadBloques;
-    BloqueNarrativo* bloques[20];
-    int bloquesActuales;
+    vector<BloqueNarrativo*> bloques;
 public:
     Quero() {}
     Quero(int id, string nombre, string estado, int cantidadBloques) {}

@@ -1,12 +1,12 @@
 #pragma once
+#include <vector>
 #include "Entidad.h"
 #include "Tocapu.h"
 
 class Codice : public Entidad {
 private:
     int capacidad;
-    Tocapu* tocapus[100];
-    int cantidadActual;
+    vector<Tocapu*> tocapus;
 public:
     Codice() {}
     Codice(int id, string nombre, int capacidad) {}
