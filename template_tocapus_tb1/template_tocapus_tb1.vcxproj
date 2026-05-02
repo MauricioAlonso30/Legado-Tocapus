@@ -134,6 +134,8 @@
     <ClInclude Include="BloqueNarrativo.h" />
     <ClInclude Include="Codice.h" />
     <ClInclude Include="Entidad.h" />
+    <ClInclude Include="Escenarios.h" />
+    <ClInclude Include="Escenarios_nivel1.h" />
     <ClInclude Include="Jugador.h" />
     <ClInclude Include="Nivel.h" />
     <ClInclude Include="Nivel1.h" />
