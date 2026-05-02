@@ -11,10 +11,10 @@ private:
     Unku* unku;
     vector<SapaInca*> candidatos;
 public:
-    Nivel2() {}
-    Nivel2(int numero, string titulo, bool completado, Jugador* jugador) {}
+    Nivel2();
+    Nivel2(int numero, string titulo, bool completado, Jugador* jugador);
 
     void iniciar() override;
-    void inspeccionarUnku() {}
-    bool deducirSapaInca() {}
+    void inspeccionarUnku();
+    bool deducirSapaInca();
 };

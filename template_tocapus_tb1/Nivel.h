@@ -9,18 +9,18 @@ protected:
     string titulo;
     bool completado;
 public:
-    Nivel() {}
-    Nivel(int numero, string titulo, bool completado) {}
-    ~Nivel() {}
+    Nivel();
+    Nivel(int numero, string titulo, bool completado);
+    ~Nivel();
 
-    int getNumero() {}
-    string getTitulo() {}
-    bool getCompletado() {}
+    int getNumero();
+    string getTitulo();
+    bool getCompletado();
 
-    void setNumero(int numero) {}
-    void setTitulo(string titulo) {}
-    void setCompletado(bool completado) {}
+    void setNumero(int numero);
+    void setTitulo(string titulo);
+    void setCompletado(bool completado);
 
-    void mostrarIntro() {}
-    virtual void iniciar() {}
+    void mostrarIntro();
+    virtual void iniciar();
 };

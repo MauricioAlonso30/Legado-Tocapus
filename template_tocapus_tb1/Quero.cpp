@@ -24,4 +24,5 @@ void Quero::mostrarBloques() {
 }
 
 bool Quero::validarOrden() {
+    return false;
 }

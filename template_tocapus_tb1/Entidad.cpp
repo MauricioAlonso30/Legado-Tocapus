@@ -2,7 +2,7 @@
 
 Entidad::Entidad() {
     this->id = 0;
-    this->nombre = nullptr;
+    this->nombre = "";
 }
 
 Entidad::Entidad(int id, string nombre) {

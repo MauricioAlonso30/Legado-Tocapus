@@ -18,4 +18,5 @@ void Nivel2::inspeccionarUnku() {
 }
 
 bool Nivel2::deducirSapaInca() {
+    return false;
 }

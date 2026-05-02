@@ -6,9 +6,9 @@ class Nivel1 : public Nivel {
 private:
     Jugador* jugador;
 public:
-    Nivel1() {}
-    Nivel1(int numero, string titulo, bool completado, Jugador* jugador) {}
+    Nivel1();
+    Nivel1(int numero, string titulo, bool completado, Jugador* jugador);
 
     void iniciar() override;
-    bool validarRespuesta() {}
+    bool validarRespuesta();
 };

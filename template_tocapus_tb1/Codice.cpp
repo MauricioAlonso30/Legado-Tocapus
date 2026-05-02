@@ -18,13 +18,18 @@ void Codice::setCapacidad(int capacidad) {
 }
 
 void Codice::agregarTocapu(Tocapu* tocapu) {
+    if (!estaLleno()) {
+        tocapus.push_back(tocapu);
+    }
 }
 
 Tocapu* Codice::buscarTocapu(int id) {
+    return nullptr;
 }
 
 void Codice::mostrarCodice() {
 }
 
 bool Codice::estaLleno() {
+    return (int)tocapus.size() >= capacidad;
 }

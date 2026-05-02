@@ -18,4 +18,5 @@ void Nivel3::ordenarBloques() {
 }
 
 string Nivel3::generarNarrativa() {
+    return "";
 }
