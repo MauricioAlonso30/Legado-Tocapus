@@ -122,5 +122,11 @@
     <ClInclude Include="Recursos.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Escenarios.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Escenarios_nivel1.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
