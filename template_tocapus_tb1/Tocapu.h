@@ -6,16 +6,16 @@ protected:
     string simboloASCII;
     string significado;
 public:
-    Tocapu() {}
-    Tocapu(int id, string nombre, string simboloASCII, string significado) {}
-    virtual ~Tocapu() {}
+    Tocapu();
+    Tocapu(int id, string nombre, string simboloASCII, string significado);
+    virtual ~Tocapu();
 
-    string getSimboloASCII() {}
-    void setSimboloASCII(string simboloASCII) {}
+    string getSimboloASCII();
+    void setSimboloASCII(string simboloASCII);
 
-    string getSignificado() {}
-    void setSignificado(string significado) {}
+    string getSignificado();
+    void setSignificado(string significado);
 
-    void mostrarTocapu() {}
-    virtual string obtenerCategoria() {}
+    void mostrarTocapu();
+    virtual string obtenerCategoria();
 };

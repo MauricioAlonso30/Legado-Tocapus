@@ -6,14 +6,14 @@ private:
     string panaca;
     string suyusGobernados;
 public:
-    SapaInca() {}
-    SapaInca(int id, string nombre, string panaca, string suyusGobernados) {}
+    SapaInca();
+    SapaInca(int id, string nombre, string panaca, string suyusGobernados);
 
-    string getPanaca() {}
-    void setPanaca(string panaca) {}
+    string getPanaca();
+    void setPanaca(string panaca);
 
-    string getSuyusGobernados() {}
-    void setSuyusGobernados(string suyusGobernados) {}
+    string getSuyusGobernados();
+    void setSuyusGobernados(string suyusGobernados);
 
-    void mostrarDatos() {}
+    void mostrarDatos();
 };

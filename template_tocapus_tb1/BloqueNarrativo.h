@@ -9,14 +9,14 @@ private:
     string descripcion;
     vector<Tocapu*> tocapus;
 public:
-    BloqueNarrativo() {}
-    BloqueNarrativo(int id, string nombre, int posicionCorrecta, string descripcion) {}
+    BloqueNarrativo();
+    BloqueNarrativo(int id, string nombre, int posicionCorrecta, string descripcion);
 
-    int getPosicionCorrecta() {}
-    void setPosicionCorrecta(int posicionCorrecta) {}
+    int getPosicionCorrecta();
+    void setPosicionCorrecta(int posicionCorrecta);
 
-    string getDescripcion() {}
-    void setDescripcion(string descripcion) {}
+    string getDescripcion();
+    void setDescripcion(string descripcion);
 
-    void mostrarBloque() {}
+    void mostrarBloque();
 };

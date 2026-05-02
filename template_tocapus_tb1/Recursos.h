@@ -15,3 +15,11 @@ void pantalla();
 int aleatorio(int limiteMinimo, int limiteMaximo);
 void setLetraColor(int color);
 void setFondoColor(int color);
+void pintarMatriz(int matriz[ALTO][ANCHO]);
+void mostrarDialogo(vector<string> lineas, int xInicio, int yInicio);
+void mostrarDialogoSolo(string mensaje, int xInicio, int yInicio);
+
+#define JUGADOR_UP 'W'
+#define JUGADOR_DOWN 'S'
+#define JUGADOR_LEFT 'A'
+#define JUGADOR_RIGHT 'D'

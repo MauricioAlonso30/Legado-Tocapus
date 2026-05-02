@@ -2,7 +2,7 @@
 
 Nivel::Nivel() {
     this->numero = 0;
-    this->titulo = nullptr;
+    this->titulo = "";
     this->completado = false;
 }
 

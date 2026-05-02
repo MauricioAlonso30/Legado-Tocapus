@@ -8,13 +8,13 @@ private:
     int cantidadBloques;
     vector<BloqueNarrativo*> bloques;
 public:
-    Quero() {}
-    Quero(int id, string nombre, string estado, int cantidadBloques) {}
+    Quero();
+    Quero(int id, string nombre, string estado, int cantidadBloques);
 
-    int getCantidadBloques() {}
-    void setCantidadBloques(int cantidadBloques) {}
+    int getCantidadBloques();
+    void setCantidadBloques(int cantidadBloques);
 
-    void reconstruirNarracion() {}
-    void mostrarBloques() {}
-    bool validarOrden() {}
+    void reconstruirNarracion();
+    void mostrarBloques();
+    bool validarOrden();
 };

@@ -7,15 +7,15 @@ private:
     int intentos;
     Codice* codice;
 public:
-    Jugador() {}
-    Jugador(int id, string nombre, int intentos) {}
+    Jugador();
+    Jugador(int id, string nombre, int intentos);
 
-    int getIntentos() {}
-    void setIntentos(int intentos) {}
+    int getIntentos();
+    void setIntentos(int intentos);
 
-    Codice* getCodice() {}
-    void setCodice(Codice* codice) {}
+    Codice* getCodice();
+    void setCodice(Codice* codice);
 
-    void reducirIntentos() {}
-    void reiniciarIntentos() {}
+    void reducirIntentos();
+    void reiniciarIntentos();
 };
