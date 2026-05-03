@@ -2,10 +2,9 @@
 
 BloqueNarrativo::BloqueNarrativo() : Entidad() {
     this->posicionCorrecta = 0;
-    this->descripcion = "";
 }
 
-BloqueNarrativo::BloqueNarrativo(int id, string nombre, int posicionCorrecta, string descripcion)
+BloqueNarrativo::BloqueNarrativo(int id, string nombre, int posicionCorrecta, vector<string> descripcion)
     : Entidad(id, nombre) {
     this->posicionCorrecta = posicionCorrecta;
     this->descripcion = descripcion;
@@ -19,13 +18,22 @@ void BloqueNarrativo::setPosicionCorrecta(int posicionCorrecta) {
     this->posicionCorrecta = posicionCorrecta;
 }
 
-string BloqueNarrativo::getDescripcion() {
+vector<string> BloqueNarrativo::getDescripcion() {
     return this->descripcion;
 }
 
-void BloqueNarrativo::setDescripcion(string descripcion) {
+void BloqueNarrativo::setDescripcion(vector<string> descripcion) {
     this->descripcion = descripcion;
 }
 
-void BloqueNarrativo::mostrarBloque() {
+void BloqueNarrativo::mostrarBloque(int x, int y, int anchoMaximo) {
+
+    setLetraColor(15);
+
+    for (string linea : this->descripcion) {
+
+        mostrarDialogoWrap(linea, x, y, anchoMaximo);
+
+        y++;
+    }
 }
