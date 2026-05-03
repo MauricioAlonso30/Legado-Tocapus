@@ -95,6 +95,7 @@ void mostrarDialogoSolo(string mensaje, int xInicio, int yInicio) {
 	for (char c : mensaje) {
 		cout << c;
 		_sleep(30);
+	}
 
 }
 
@@ -186,4 +187,7 @@ void mostrarDialogoAuto(vector<string> lineas, int xInicio, int yInicio, int anc
 		y++; // siguiente línea
 	}
 }
+
+
+
 

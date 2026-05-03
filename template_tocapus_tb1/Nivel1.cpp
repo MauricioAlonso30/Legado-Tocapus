@@ -1,11 +1,12 @@
 #include "Nivel1.h"
 #include "Recursos.h"
-#include "Escenarios_nivel1.h"
 #include "Escenarios.h"
+#include "Escenarios_nivel1.h"
 #include "TocapuLinaje.h"
 #include "TocapuTerritorio.h"
 #include "TocapuJerarquia.h"
 #include "BloqueNarrativo.h"
+
 
 
 
@@ -168,8 +169,7 @@ static void dibujarIntentos(int n) {
 }
 
 static void mostrarWin() {
-    system("cls"); pintarMatriz(matriz_escena4_nivel1); _getch();
-    system("cls"); pintarMatriz(matriz_win);            _getch();
+    system("cls"); pintarMatriz(matriz_win); _getch();
 }
 
 static void mostrarLost() {
@@ -222,6 +222,12 @@ void Nivel1::iniciar() {
         "Tienes intentos limitados.",
         "Cada acierto se registrará en tu códice."
         });
+    BloqueNarrativo textoEscena4(5, "Escena 4", 0,
+        {
+        R"( El conocimiento de Qhipu Ayar comienza a tomar forma.
+        Los tocapus aprendidos se registran en el códice, marcando el inicio de su aprendizaje 
+        )" });
+
 
     system("cls"); pintarMatriz(matriz_mensaje_global); mensajeGlobal.mostrarBloque(40, 23, 90); _getch();
     system("cls"); pintarMatriz(matriz_nivel1); _getch();
@@ -229,6 +235,7 @@ void Nivel1::iniciar() {
     system("cls"); pintarMatriz(matriz_escena1_nivel1); textoEscena1.mostrarBloque(147, 15, 22); _getch();
     system("cls"); pintarMatriz(matriz_escena2_nivel1);  textoEscena2.mostrarBloque(120, 15, 47), _getch();
     system("cls"); pintarMatriz(matriz_escena3_nivel1);  textoEscena3.mostrarBloque(40, 20, 90);  _getch();
+
 
     vector<Tocapu*> pool;
     for (int id = 1; id <= 15; id++) {
@@ -290,7 +297,7 @@ void Nivel1::iniciar() {
             }
         }
     }
-
+    system("cls"); pintarMatriz(matriz_escena4_nivel1);  textoEscena4.mostrarBloque(147, 15, 22);  _getch();
     mostrarWin();
     setCompletado(true);
 }
@@ -298,3 +305,5 @@ void Nivel1::iniciar() {
 bool Nivel1::validarRespuesta() {
     return false;
 }
+
+

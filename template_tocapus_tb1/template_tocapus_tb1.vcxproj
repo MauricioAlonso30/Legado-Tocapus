@@ -114,6 +114,8 @@
     <ClCompile Include="BloqueNarrativo.cpp" />
     <ClCompile Include="Codice.cpp" />
     <ClCompile Include="Entidad.cpp" />
+    <ClCompile Include="Escenarios.cpp" />
+    <ClCompile Include="Escenarios_nivel1.cpp" />
     <ClCompile Include="Jugador.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Nivel.cpp" />

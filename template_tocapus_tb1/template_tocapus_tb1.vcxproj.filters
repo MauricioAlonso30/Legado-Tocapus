@@ -69,6 +69,12 @@
     <ClCompile Include="Recursos.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Escenarios.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Escenarios_nivel1.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Entidad.h">

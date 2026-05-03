@@ -2,9 +2,14 @@
 #include "Nivel1.h"
 #include "Escenarios.h"
 #include "Jugador.h"
-#include <conio.h>
-#include <ctime>
-#include <cstdlib>
+
+
+
+void dibujarBotonMenu(int x, int y);
+
+
+void borrarBotonMenu(int x, int y);
+
 
 int main() {
     
@@ -106,26 +111,45 @@ while (!salir)
 }
 
 
+void dibujarBotonMenu(int x, int y) {
+    setLetraColor(10);
+
+    cursorPosition(x, y);         cout << (char)219;
+    cursorPosition(x, y + 1);     cout << (char)219;
+    cursorPosition(x + 1, y + 1); cout << (char)219;
+    cursorPosition(x + 2, y + 1); cout << (char)219;
+    cursorPosition(x, y + 2);     cout << (char)219;
+    cursorPosition(x + 1, y + 2); cout << (char)219;
+    cursorPosition(x + 2, y + 2); cout << (char)219;
+    cursorPosition(x + 3, y + 2); cout << (char)219;
+    cursorPosition(x + 4, y + 2); cout << (char)219;
+    cursorPosition(x, y + 3);     cout << (char)219;
+    cursorPosition(x + 1, y + 3); cout << (char)219;
+    cursorPosition(x + 2, y + 3); cout << (char)219;
+    cursorPosition(x, y + 4);     cout << (char)219;
+}
 
 
-/*
+void borrarBotonMenu(int x, int y) {
 
-setLetraColor(15);
-cursorPosition(60, 21);
-cout << "presiona una tecla para comenzar";
-_getch();
-system("cls");
+    for (int dy = 0; dy < 5; dy++) {
+        for (int dx = 0; dx < 5; dx++) {
 
-Jugador* qhipu = new Jugador(1, "Qhipu Ayar", 3);
-qhipu->getCodice()->setId(1);
-qhipu->getCodice()->setNombre("Codice de Qhipu");
-qhipu->getCodice()->setCapacidad(15);
+            int px = x + dx;
+            int py = y + dy;
 
-Nivel1 nivel1(1, "El Aprendiz", false, qhipu);
-nivel1.iniciar();
+            cursorPosition(px, py);
 
-delete qhipu;
-return 0;
+            int valor = matriz_menu_principal[py][px];
 
 
-\*/
+            if (valor == 0) {
+                cout << " ";
+            }
+            else {
+                setLetraColor(valor);
+                cout << (char)219;
+            }
+        }
+    }
+}

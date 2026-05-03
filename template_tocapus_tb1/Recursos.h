@@ -3,7 +3,8 @@
 #include <conio.h>
 #include<vector>
 #include <Windows.h>
-#include <locale.h>
+#include <ctime>
+#include <cstdlib>
 
 using namespace std;
 using namespace System;
@@ -21,6 +22,7 @@ void mostrarDialogo(vector<string> lineas, int xInicio, int yInicio);
 void mostrarDialogoSolo(string mensaje, int xInicio, int yInicio);
 void mostrarDialogoWrap(string mensaje, int xInicio, int yInicio, int anchoMaximo);
 void mostrarDialogoAuto(vector<string> lineas, int xInicio, int yInicio, int anchoMaximo);
+
 #define JUGADOR_UP 'W'
 #define JUGADOR_DOWN 'S'
 #define JUGADOR_LEFT 'A'
