@@ -1,12 +1,14 @@
 #include "Nivel1.h"
 #include "Recursos.h"
-#include "Escenarios_nivel1.h"
 #include "Escenarios.h"
+#include "Escenarios_nivel1.h"
 #include "TocapuLinaje.h"
 #include "TocapuTerritorio.h"
 #include "TocapuJerarquia.h"
-#include <conio.h>
-#include <vector>
+#include "BloqueNarrativo.h"
+
+
+
 
 Nivel1::Nivel1() : Nivel() {
     this->jugador = nullptr;
@@ -167,8 +169,7 @@ static void dibujarIntentos(int n) {
 }
 
 static void mostrarWin() {
-    system("cls"); pintarMatriz(matriz_escena4_nivel1); _getch();
-    system("cls"); pintarMatriz(matriz_win);            _getch();
+    system("cls"); pintarMatriz(matriz_win); _getch();
 }
 
 static void mostrarLost() {
@@ -196,11 +197,45 @@ void Nivel1::iniciar() {
     codice->agregarTocapu(new TocapuJerarquia(14, "Curaca",       "[c]", "Jefe local",          "Curaca"));
     codice->agregarTocapu(new TocapuJerarquia(15, "Cumbicamayoc", "[t]", "Maestro tejedor",     "Cumbicamayoc"));
 
-    system("cls"); pintarMatriz(matriz_nivel1);          _getch();
-    system("cls"); pintarMatriz(matriz_mensaje_nivel1);  _getch();
-    system("cls"); pintarMatriz(matriz_escena1_nivel1);  _getch();
-    system("cls"); pintarMatriz(matriz_escena2_nivel1);  _getch();
-    system("cls"); pintarMatriz(matriz_escena3_nivel1);  _getch();
+    BloqueNarrativo mensajeGlobal(0, "Escena Global", 0, { "¿Es posible reconstruir y preservar una cultura ancestral cuando su lenguaje aún no ha sido completamente comprendido?" });
+
+    BloqueNarrativo mensajeEscenaNivel1(1, "Escena 1", 0, { "¿El conocimiento se pierde cuando no se comprende o cuando no se transmite?" });
+
+    BloqueNarrativo textoEscena1(2,"Escena 1",0,
+        { 
+        R"(En la ciudad del Cusco, durante el apogeo del Imperio Inca, los conocimientos sobre los tocapus son resguardados por los cumbicamayoc, artesanos de élite 
+        encargados de tejer no sólo textiles, sino también información cultural. Estos no son simples símbolos, sino un lenguaje visual que representa linajes, 
+        territorios y jerarquías.")"
+        });
+    BloqueNarrativo textoEscena2(3, "Escena 2", 0,
+        {
+        R"(Qhipu Ayar, es aceptado como aprendiz en el taller de uno de estos artesanos cumbicamayoc. Sin embargo, el tiempo es limitado, el maestro, consciente de su 
+        pronta muerte, debe transmitir todo su conocimiento antes de que este fallezca por una rara enfermedad. 
+          )"
+        });
+        
+    BloqueNarrativo textoEscena3(4, "Escena 3", 0,
+        {
+        "Debes observar cada tocapu y seleccionar su significado correcto.",
+        "Usa las teclas W y S para desplazarte entre las opciones.",
+        "Presiona ENTER para confirmar tu respuesta.",
+        "Tienes intentos limitados.",
+        "Cada acierto se registrará en tu códice."
+        });
+    BloqueNarrativo textoEscena4(5, "Escena 4", 0,
+        {
+        R"( El conocimiento de Qhipu Ayar comienza a tomar forma.
+        Los tocapus aprendidos se registran en el códice, marcando el inicio de su aprendizaje 
+        )" });
+
+
+    system("cls"); pintarMatriz(matriz_mensaje_global); mensajeGlobal.mostrarBloque(40, 23, 90); _getch();
+    system("cls"); pintarMatriz(matriz_nivel1); _getch();
+    system("cls"); pintarMatriz(matriz_mensaje_nivel1); mensajeEscenaNivel1.mostrarBloque(40, 23, 90); _getch();
+    system("cls"); pintarMatriz(matriz_escena1_nivel1); textoEscena1.mostrarBloque(147, 15, 22); _getch();
+    system("cls"); pintarMatriz(matriz_escena2_nivel1);  textoEscena2.mostrarBloque(120, 15, 47), _getch();
+    system("cls"); pintarMatriz(matriz_escena3_nivel1);  textoEscena3.mostrarBloque(40, 20, 90);  _getch();
+
 
     vector<Tocapu*> pool;
     for (int id = 1; id <= 15; id++) {
@@ -262,7 +297,7 @@ void Nivel1::iniciar() {
             }
         }
     }
-
+    system("cls"); pintarMatriz(matriz_escena4_nivel1);  textoEscena4.mostrarBloque(147, 15, 22);  _getch();
     mostrarWin();
     setCompletado(true);
 }
@@ -270,3 +305,5 @@ void Nivel1::iniciar() {
 bool Nivel1::validarRespuesta() {
     return false;
 }
+
+

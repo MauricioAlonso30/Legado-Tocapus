@@ -8,16 +8,6 @@ void cursorPosition(int x, int y)
 
 void pantalla()
 {
-	HANDLE hOut = GetStdHandle(STD_OUTPUT_HANDLE);
-	CONSOLE_FONT_INFOEX cfi = {};
-	cfi.cbSize = sizeof(cfi);
-	cfi.nFont = 0;
-	cfi.dwFontSize.X = 8;
-	cfi.dwFontSize.Y = 12;
-	cfi.FontFamily = FF_DONTCARE;
-	cfi.FontWeight = FW_NORMAL;
-	wcscpy_s(cfi.FaceName, L"Consolas");
-	SetCurrentConsoleFontEx(hOut, FALSE, &cfi);
 
 	Console::CursorVisible = 0;
 	Console::SetBufferSize(ANCHO, ALTO);
@@ -64,25 +54,140 @@ void pintarMatriz(int matriz[ALTO][ANCHO]) {
 	}
 }
 
+
+
+
+string limpiarTexto(string texto) {
+
+	string textoLimpio = "";
+	bool inicioLinea = true;
+
+	for (char letra : texto) {
+
+		if (letra == '\n') {
+			textoLimpio += ' ';
+			inicioLinea = true;
+		}
+		else if (inicioLinea && letra == ' ') {
+			// Ignorar espacios al comenzar línea
+		}
+		else {
+			textoLimpio += letra;
+			inicioLinea = false;
+		}
+	}
+
+	return textoLimpio;
+}
+
+// Mostrar dialogo con una oracion o linea -> strings
+
+
+
 void mostrarDialogoSolo(string mensaje, int xInicio, int yInicio) {
+
 	cursorPosition(xInicio, yInicio);
 	setLetraColor(15);
+
+	// Mostrar el texto letra por letra
+	cursorPosition(xInicio, yInicio); // texto centrado
+	setLetraColor(15); // color blanco
 	for (char c : mensaje) {
 		cout << c;
 		_sleep(30);
 	}
+
 }
 
+// Mostrar texto con varias lineas
 void mostrarDialogo(vector<string> lineas, int xInicio, int yInicio) {
+
 	setLetraColor(15);
 	int y = yInicio;
 
 	for (string linea : lineas) {
+
 		cursorPosition(xInicio, y++);
+
 		for (char c : linea) {
 			cout << c;
 			_sleep(30);
 		}
-		Beep(250, 100);
+
+		Beep(250, 100); // ?? NO BORRADO (lo respeté)
 	}
 }
+
+
+
+void mostrarDialogoWrap(string mensaje, int xInicio, int yInicio, int anchoMaximo) {
+
+	mensaje = limpiarTexto(mensaje);
+
+	int x = xInicio;
+	int y = yInicio;
+	int contador = 0;
+
+	setLetraColor(15);
+
+	for (char c : mensaje) {
+
+		// protección pantalla
+		if (y >= ALTO - 1) return;
+
+		// salto automático por ancho
+		if (contador >= anchoMaximo) {
+			y++;
+			x = xInicio;
+			contador = 0;
+
+			if (y >= ALTO - 1) return;
+		}
+
+		cursorPosition(x, y);
+		cout << c;
+		_sleep(25);
+
+		x++;
+		contador++;
+	}
+}
+
+
+
+
+
+void mostrarDialogoAuto(vector<string> lineas, int xInicio, int yInicio, int anchoMaximo) {
+
+	setLetraColor(15);
+
+	int y = yInicio;
+
+	for (string linea : lineas) {
+
+		int x = xInicio;
+		int contador = 0;
+
+		for (char c : linea) {
+
+			if (contador >= anchoMaximo) {
+				y++;
+				x = xInicio;
+				contador = 0;
+			}
+
+			cursorPosition(x, y);
+			cout << c;
+			_sleep(25);
+
+			x++;
+			contador++;
+		}
+
+		y++; // siguiente línea
+	}
+}
+
+
+
+
