@@ -24,6 +24,11 @@ void Codice::agregarTocapu(Tocapu* tocapu) {
 }
 
 Tocapu* Codice::buscarTocapu(int id) {
+    for (Tocapu* t : tocapus) {
+        if (t != nullptr && t->getId() == id) {
+            return t;
+        }
+    }
     return nullptr;
 }
 

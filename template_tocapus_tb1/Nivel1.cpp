@@ -1,6 +1,7 @@
 #include "Nivel1.h"
 #include "Recursos.h"
 #include "Escenarios_nivel1.h"
+#include "Escenarios.h"
 #include "TocapuLinaje.h"
 #include "TocapuTerritorio.h"
 #include "TocapuJerarquia.h"
@@ -15,6 +16,164 @@ Nivel1::Nivel1() : Nivel() {
 Nivel1::Nivel1(int numero, string titulo, bool completado, Jugador* jugador)
     : Nivel(numero, titulo, completado) {
     this->jugador = jugador;
+}
+
+static int categoriaIndice(Tocapu* t) {
+    string c = t->obtenerCategoria();
+    if (c.find("Linaje") == 0) return 0;
+    if (c.find("Territorio") == 0) return 1;
+    return 2;
+}
+
+static vector<string> asciiPorCategoria(int cat) {
+    if (cat == 0) {
+        return {
+            " _______ ",
+            "|  /\\   |",
+            "| /  \\  |",
+            "| \\--/  |",
+            "|  \\/   |",
+            "|_______|"
+        };
+    } else if (cat == 1) {
+        return {
+            " _______ ",
+            "| #   # |",
+            "|   #   |",
+            "| #   # |",
+            "|       |",
+            "|_______|"
+        };
+    } else {
+        return {
+            " _______ ",
+            "|   *   |",
+            "| * * * |",
+            "|   *   |",
+            "|       |",
+            "|_______|"
+        };
+    }
+}
+
+static void dibujarTocapuActual(Tocapu* t) {
+    int cat = categoriaIndice(t);
+    vector<string> art = asciiPorCategoria(cat);
+
+    int xBase = 23;
+    int yBase = 22;
+
+    setLetraColor(15);
+    for (size_t i = 0; i < art.size(); i++) {
+        cursorPosition(xBase, yBase + (int)i);
+        cout << art[i];
+    }
+}
+
+static void dibujarOpciones(int seleccion) {
+    string opciones[3] = { "LINAJE", "TERRITORIO", "JERARQUIA" };
+    string descripciones[3] = {
+        "Representa a una familia o descendencia.",
+        "Representa un lugar o region.            ",
+        "Representa un rango o posicion.          "
+    };
+    int yBase[3] = { 19, 27, 35 };
+    int xCursor = 56;
+    int xLabel = 70;
+
+    for (int i = 0; i < 3; i++) {
+        for (int dy = -2; dy <= 1; dy++) {
+            cursorPosition(xCursor, yBase[i] + dy);
+            cout << "       ";
+        }
+
+        if (i == seleccion) {
+            setLetraColor(14);
+            cursorPosition(xCursor, yBase[i] - 2);
+            cout << "  __  ";
+            cursorPosition(xCursor, yBase[i] - 1);
+            cout << " /  \\ ";
+            cursorPosition(xCursor, yBase[i]);
+            cout << "|    |";
+            cursorPosition(xCursor + 6, yBase[i]);
+            cout << ">";
+            cursorPosition(xCursor, yBase[i] + 1);
+            cout << " \\__/ ";
+        }
+
+        cursorPosition(xLabel, yBase[i] - 1);
+        setLetraColor(i == seleccion ? 14 : 15);
+        cout << opciones[i];
+
+        cursorPosition(xLabel, yBase[i] + 1);
+        setLetraColor(7);
+        cout << descripciones[i];
+    }
+}
+
+static void dibujarCodiceJuego(vector<Tocapu*>& acertados) {
+    int xBase = 128;
+    int yBase = 15;
+    int colsPorFila = 3;
+    int anchoCelda = 13;
+    int altoCelda = 9;
+
+    for (size_t i = 0; i < acertados.size(); i++) {
+        int fila = (int)i / colsPorFila;
+        int col = (int)i % colsPorFila;
+        int x = xBase + col * anchoCelda;
+        int y = yBase + fila * altoCelda;
+
+        int cat = categoriaIndice(acertados[i]);
+        setLetraColor(cat == 0 ? 11 : (cat == 1 ? 10 : 14));
+
+        if (cat == 0) {
+            cursorPosition(x, y);     cout << " /\\ ";
+            cursorPosition(x, y + 1); cout << "<L >";
+            cursorPosition(x, y + 2); cout << " \\/ ";
+        }
+        else if (cat == 1) {
+            cursorPosition(x, y);     cout << "#   #";
+            cursorPosition(x, y + 1); cout << " #T# ";
+            cursorPosition(x, y + 2); cout << "#   #";
+        }
+        else {
+            cursorPosition(x, y);     cout << "  *  ";
+            cursorPosition(x, y + 1); cout << " *J* ";
+            cursorPosition(x, y + 2); cout << "  *  ";
+        }
+    }
+}
+
+static void dibujarDescripcion(Tocapu* t) {
+    int xBase = 15;
+    int yBase = 43;
+
+    cursorPosition(xBase, yBase);
+    setLetraColor(14);
+    cout << t->getNombre();
+
+    cursorPosition(xBase, yBase + 1);
+    setLetraColor(15);
+    cout << t->getSignificado();
+}
+
+static void dibujarIntentos(int n) {
+    int xBase = 130;
+    int yBase = 39;
+
+    cursorPosition(xBase, yBase);
+    setLetraColor(n > 1 ? 14 : 12);
+    cout << "INTENTOS: " << n << "/3";
+}
+
+static void mostrarWin() {
+    system("cls"); pintarMatriz(matriz_escena4_nivel1); _getch();
+    system("cls"); pintarMatriz(matriz_win);            _getch();
+}
+
+static void mostrarLost() {
+    system("cls"); pintarMatriz(matriz_lost); _getch();
 }
 
 void Nivel1::iniciar() {
@@ -71,6 +230,68 @@ void Nivel1::iniciar() {
     system("cls"); pintarMatriz(matriz_escena2_nivel1);  textoEscena2.mostrarBloque(120, 15, 47), _getch();
     system("cls"); pintarMatriz(matriz_escena3_nivel1);  textoEscena3.mostrarBloque(40, 20, 90);  _getch();
 
+    vector<Tocapu*> pool;
+    for (int id = 1; id <= 15; id++) {
+        Tocapu* t = codice->buscarTocapu(id);
+        if (t != nullptr) pool.push_back(t);
+    }
+
+    for (int i = (int)pool.size() - 1; i > 0; i--) {
+        int j = aleatorio(0, i);
+        Tocapu* tmp = pool[i];
+        pool[i] = pool[j];
+        pool[j] = tmp;
+    }
+
+    if (pool.size() > 5) pool.resize(5);
+
+    int intentos = 3;
+    vector<Tocapu*> acertados;
+
+    for (size_t k = 0; k < pool.size(); k++) {
+        Tocapu* tocapu = pool[k];
+
+        system("cls");
+        pintarMatriz(matriz_escena_juego_nivel1);
+        dibujarTocapuActual(tocapu);
+        dibujarCodiceJuego(acertados);
+        dibujarDescripcion(tocapu);
+        dibujarIntentos(intentos);
+
+        int seleccion = 0;
+        bool confirmado = false;
+
+        while (!confirmado) {
+            dibujarOpciones(seleccion);
+
+            int tecla = _getch();
+            if (tecla == 'w' || tecla == 'W') {
+                seleccion = (seleccion - 1 + 3) % 3;
+            }
+            else if (tecla == 's' || tecla == 'S') {
+                seleccion = (seleccion + 1) % 3;
+            }
+            else if (tecla == 13) {
+                confirmado = true;
+            }
+        }
+
+        bool correcto = (seleccion == categoriaIndice(tocapu));
+
+        if (correcto) {
+            acertados.push_back(tocapu);
+        }
+        else {
+            intentos--;
+            if (intentos <= 0) {
+                mostrarLost();
+                setCompletado(false);
+                return;
+            }
+        }
+    }
+
+    mostrarWin();
     setCompletado(true);
 }
 

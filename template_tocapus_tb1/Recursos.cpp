@@ -89,13 +89,16 @@ void mostrarDialogoSolo(string mensaje, int xInicio, int yInicio) {
 	cursorPosition(xInicio, yInicio);
 	setLetraColor(15);
 
+	// Mostrar el texto letra por letra
+	cursorPosition(xInicio, yInicio); // texto centrado
+	setLetraColor(15); // color blanco
 	for (char c : mensaje) {
 		cout << c;
 		_sleep(30);
-	}
+
 }
 
-
+// Mostrar texto con varias lineas
 void mostrarDialogo(vector<string> lineas, int xInicio, int yInicio) {
 
 	setLetraColor(15);
