@@ -64,22 +64,15 @@ void pintarMatriz(int matriz[ALTO][ANCHO]) {
 	}
 }
 
-// Mostrar dialogo con una oracion o linea -> strings
 void mostrarDialogoSolo(string mensaje, int xInicio, int yInicio) {
-	/*
-	mostrarDialogo(escenario1_reglas, 36, 16);
-	*/
-
-	// Mostrar el texto letra por letra
-	cursorPosition(xInicio, yInicio); // texto centrado
-	setLetraColor(15); // color blanco
+	cursorPosition(xInicio, yInicio);
+	setLetraColor(15);
 	for (char c : mensaje) {
 		cout << c;
-		_sleep(30); // velocidad de aparacion del mensaje
+		_sleep(30);
 	}
 }
 
-// Mostrar texto con varias lineas
 void mostrarDialogo(vector<string> lineas, int xInicio, int yInicio) {
 	setLetraColor(15);
 	int y = yInicio;
