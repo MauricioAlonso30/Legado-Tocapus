@@ -6,7 +6,6 @@ using namespace std;
 class Entidad {
 	protected:
 		int id;
-		//int luegoBorro;
 		string nombre;
 	public:
 		Entidad();
