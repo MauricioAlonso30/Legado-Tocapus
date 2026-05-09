@@ -116,6 +116,8 @@
     <ClCompile Include="Entidad.cpp" />
     <ClCompile Include="Escenarios.cpp" />
     <ClCompile Include="Escenarios_nivel1.cpp" />
+    <ClCompile Include="Escenarios_nivel2.cpp" />
+    <ClCompile Include="Escenarios_nivel3.cpp" />
     <ClCompile Include="Jugador.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Nivel.cpp" />
@@ -138,6 +140,8 @@
     <ClInclude Include="Entidad.h" />
     <ClInclude Include="Escenarios.h" />
     <ClInclude Include="Escenarios_nivel1.h" />
+    <ClInclude Include="Escenarios_nivel2.h" />
+    <ClInclude Include="Escenarios_nivel3.h" />
     <ClInclude Include="Jugador.h" />
     <ClInclude Include="Nivel.h" />
     <ClInclude Include="Nivel1.h" />

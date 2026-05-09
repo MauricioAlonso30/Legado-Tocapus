@@ -75,6 +75,12 @@
     <ClCompile Include="Escenarios_nivel1.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Escenarios_nivel2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Escenarios_nivel3.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Entidad.h">
@@ -132,6 +138,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Escenarios_nivel1.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Escenarios_nivel2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Escenarios_nivel3.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
