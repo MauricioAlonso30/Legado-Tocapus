@@ -81,6 +81,9 @@
     <ClCompile Include="Escenarios_nivel3.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="JuegoNivelesTocapus.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Entidad.h">
@@ -144,6 +147,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Escenarios_nivel3.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="JuegoNivelesTocapus.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
