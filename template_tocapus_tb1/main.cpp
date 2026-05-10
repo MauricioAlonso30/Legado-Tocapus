@@ -1,7 +1,7 @@
 #include "Recursos.h"
-#include "Nivel1.h"
+#include "JuegoNivelesTocapus.h"
 #include "Escenarios.h"
-#include "Jugador.h"
+
 
 
 
@@ -59,16 +59,10 @@ while (!salir)
                 {
                     system("cls");
 
-                    Jugador* qhipu = new Jugador(1, "Qhipu Ayar", 3);
-                    qhipu->getCodice()->setId(1);
-                    qhipu->getCodice()->setNombre("Codice de Qhipu");
-                    qhipu->getCodice()->setCapacidad(15);
+                    JuegoNivelesTocapus juego;
+                    juego.iniciarJuego();
 
-                    Nivel1 nivel1(1, "El Aprendiz", false, qhipu);
-                    nivel1.iniciar();
-
-                    delete qhipu;
-
+    
                     // Volver al menú
                     system("cls");
                     pintarMatriz(matriz_menu_principal);

@@ -199,22 +199,22 @@ void Nivel1::iniciar() {
 
     BloqueNarrativo mensajeGlobal(0, "Escena Global", 0, { "¿Es posible reconstruir y preservar una cultura ancestral cuando su lenguaje aún no ha sido completamente comprendido?" });
 
-    BloqueNarrativo mensajeEscenaNivel1(1, "Escena 1", 0, { "¿El conocimiento se pierde cuando no se comprende o cuando no se transmite?" });
+    BloqueNarrativo mensajeEscenaNivel1(1, "Escena Mensaje nivel 1", 0, { "¿El conocimiento se pierde cuando no se comprende o cuando no se transmite?" });
 
-    BloqueNarrativo textoEscena1(2,"Escena 1",0,
+    BloqueNarrativo textoEscena1(2,"Escena 1 nivel 1",0,
         { 
         R"(En la ciudad del Cusco, durante el apogeo del Imperio Inca, los conocimientos sobre los tocapus son resguardados por los cumbicamayoc, artesanos de élite 
         encargados de tejer no sólo textiles, sino también información cultural. Estos no son simples símbolos, sino un lenguaje visual que representa linajes, 
-        territorios y jerarquías.")"
+        territorios y jerarquías.)"
         });
-    BloqueNarrativo textoEscena2(3, "Escena 2", 0,
+    BloqueNarrativo textoEscena2(3, "Escena 2 nivel 1", 0,
         {
         R"(Qhipu Ayar, es aceptado como aprendiz en el taller de uno de estos artesanos cumbicamayoc. Sin embargo, el tiempo es limitado, el maestro, consciente de su 
         pronta muerte, debe transmitir todo su conocimiento antes de que este fallezca por una rara enfermedad. 
           )"
         });
         
-    BloqueNarrativo textoEscena3(4, "Escena 3", 0,
+    BloqueNarrativo textoEscena3(4, "Escena 3 nivel 1", 0,
         {
         "Debes observar cada tocapu y seleccionar su significado correcto.",
         "Usa las teclas W y S para desplazarte entre las opciones.",
@@ -222,7 +222,7 @@ void Nivel1::iniciar() {
         "Tienes intentos limitados.",
         "Cada acierto se registrará en tu códice."
         });
-    BloqueNarrativo textoEscena4(5, "Escena 4", 0,
+    BloqueNarrativo textoEscena4(5, "Escena 4 nivel 1", 0,
         {
         R"( El conocimiento de Qhipu Ayar comienza a tomar forma.
         Los tocapus aprendidos se registran en el códice, marcando el inicio de su aprendizaje 
@@ -298,7 +298,6 @@ void Nivel1::iniciar() {
         }
     }
     system("cls"); pintarMatriz(matriz_escena4_nivel1);  textoEscena4.mostrarBloque(147, 15, 22);  _getch();
-    mostrarWin();
     setCompletado(true);
 }
 
