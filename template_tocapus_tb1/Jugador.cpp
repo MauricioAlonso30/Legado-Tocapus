@@ -32,3 +32,14 @@ void Jugador::reducirIntentos() {
 
 void Jugador::reiniciarIntentos() {
 }
+
+void Jugador::agregarAprendido(int id) {
+    for (size_t i = 0; i < aprendidos.size(); i++) {
+        if (aprendidos[i] == id) return;
+    }
+    aprendidos.push_back(id);
+}
+
+vector<int>& Jugador::getAprendidos() {
+    return aprendidos;
+}
