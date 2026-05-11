@@ -26,6 +26,17 @@ void BloqueNarrativo::setDescripcion(vector<string> descripcion) {
     this->descripcion = descripcion;
 }
 
+
+vector<string> BloqueNarrativo::getFiguraASCII() {
+    return this->figuraASCII;
+}
+
+void BloqueNarrativo::setFiguraASCII(vector<string> figuraASCII) {
+    this->figuraASCII = figuraASCII;
+}
+
+
+
 void BloqueNarrativo::mostrarBloque(int x, int y, int anchoMaximo) {
 
     setLetraColor(15);
