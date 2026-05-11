@@ -197,15 +197,15 @@ void Nivel1::iniciar() {
     codice->agregarTocapu(new TocapuJerarquia(14, "Curaca",       "[c]", "Jefe local",          "Curaca"));
     codice->agregarTocapu(new TocapuJerarquia(15, "Cumbicamayoc", "[t]", "Maestro tejedor",     "Cumbicamayoc"));
 
-    BloqueNarrativo mensajeGlobal(0, "Escena Global", 0, { "¿Es posible reconstruir y preservar una cultura ancestral cuando su lenguaje aún no ha sido completamente comprendido?" });
+    BloqueNarrativo mensajeGlobal(0, "Escena Global", 0, { "ï¿½Es posible reconstruir y preservar una cultura ancestral cuando su lenguaje aï¿½n no ha sido completamente comprendido?" });
 
-    BloqueNarrativo mensajeEscenaNivel1(1, "Escena Mensaje nivel 1", 0, { "¿El conocimiento se pierde cuando no se comprende o cuando no se transmite?" });
+    BloqueNarrativo mensajeEscenaNivel1(1, "Escena Mensaje nivel 1", 0, { "ï¿½El conocimiento se pierde cuando no se comprende o cuando no se transmite?" });
 
     BloqueNarrativo textoEscena1(2,"Escena 1 nivel 1",0,
         { 
-        R"(En la ciudad del Cusco, durante el apogeo del Imperio Inca, los conocimientos sobre los tocapus son resguardados por los cumbicamayoc, artesanos de élite 
-        encargados de tejer no sólo textiles, sino también información cultural. Estos no son simples símbolos, sino un lenguaje visual que representa linajes, 
-        territorios y jerarquías.)"
+        R"(En la ciudad del Cusco, durante el apogeo del Imperio Inca, los conocimientos sobre los tocapus son resguardados por los cumbicamayoc, artesanos de ï¿½lite 
+        encargados de tejer no sï¿½lo textiles, sino tambiï¿½n informaciï¿½n cultural. Estos no son simples sï¿½mbolos, sino un lenguaje visual que representa linajes, 
+        territorios y jerarquï¿½as.)"
         });
     BloqueNarrativo textoEscena2(3, "Escena 2 nivel 1", 0,
         {
@@ -220,12 +220,12 @@ void Nivel1::iniciar() {
         "Usa las teclas W y S para desplazarte entre las opciones.",
         "Presiona ENTER para confirmar tu respuesta.",
         "Tienes intentos limitados.",
-        "Cada acierto se registrará en tu códice."
+        "Cada acierto se registrarï¿½ en tu cï¿½dice."
         });
     BloqueNarrativo textoEscena4(5, "Escena 4 nivel 1", 0,
         {
         R"( El conocimiento de Qhipu Ayar comienza a tomar forma.
-        Los tocapus aprendidos se registran en el códice, marcando el inicio de su aprendizaje 
+        Los tocapus aprendidos se registran en el cï¿½dice, marcando el inicio de su aprendizaje 
         )" });
 
 
@@ -250,12 +250,11 @@ void Nivel1::iniciar() {
         pool[j] = tmp;
     }
 
-    if (pool.size() > 5) pool.resize(5);
-
     int intentos = 3;
+    int aciertosNecesarios = 5;
     vector<Tocapu*> acertados;
 
-    for (size_t k = 0; k < pool.size(); k++) {
+    for (size_t k = 0; k < pool.size() && (int)acertados.size() < aciertosNecesarios; k++) {
         Tocapu* tocapu = pool[k];
 
         system("cls");
@@ -287,6 +286,7 @@ void Nivel1::iniciar() {
 
         if (correcto) {
             acertados.push_back(tocapu);
+            jugador->agregarAprendido(tocapu->getId());
         }
         else {
             intentos--;
@@ -297,6 +297,12 @@ void Nivel1::iniciar() {
             }
         }
     }
+    if ((int)acertados.size() < aciertosNecesarios) {
+        mostrarLost();
+        setCompletado(false);
+        return;
+    }
+
     system("cls"); pintarMatriz(matriz_escena4_nivel1);  textoEscena4.mostrarBloque(147, 15, 22);  _getch();
     setCompletado(true);
 }
