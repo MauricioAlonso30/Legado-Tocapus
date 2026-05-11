@@ -7,6 +7,7 @@ class BloqueNarrativo : public Entidad {
 private:
     int posicionCorrecta;
     vector<string> descripcion;
+    vector<string> figuraASCII;
     vector<Tocapu*> tocapus;
 public:
     BloqueNarrativo();
@@ -17,6 +18,8 @@ public:
 
     vector<string> getDescripcion();
     void setDescripcion(vector<string> descripcion);
+    vector<string> getFiguraASCII();
+    void setFiguraASCII(vector<string> figuraASCII);
 
     void mostrarBloque(int x, int y, int anchoMaximo);
 };

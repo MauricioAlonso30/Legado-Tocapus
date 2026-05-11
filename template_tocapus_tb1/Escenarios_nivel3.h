@@ -14,3 +14,5 @@ extern int matriz_escena3_nivel3[ALTO][ANCHO];
 extern int matriz_escena_juego_nivel3[ALTO][ANCHO];
 
 extern int matriz_escena4_nivel3[ALTO][ANCHO];
+
+extern int matriz_Mensaje_escena5_nivel3[ALTO][ANCHO];

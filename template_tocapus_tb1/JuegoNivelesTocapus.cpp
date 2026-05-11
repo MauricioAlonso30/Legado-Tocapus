@@ -16,8 +16,8 @@ JuegoNivelesTocapus::~JuegoNivelesTocapus() {
 
 void JuegoNivelesTocapus::iniciarJuego() {
 
-    
-    Nivel1 nivel1(1, "El Aprendiz", false, jugador);
+   
+        Nivel1 nivel1(1, "El Aprendiz", false, jugador);
 
     nivel1.iniciar();
 
@@ -26,16 +26,16 @@ void JuegoNivelesTocapus::iniciarJuego() {
     }
     
 
-    
+
         Nivel2 nivel2(2, "Unkus", false, jugador);
 
     nivel2.iniciar();
 
     if (!nivel2.getCompletado()) {
         return;
-    }
-    
-
+    }    
+   
+   
     Nivel3 nivel3(3, "Quero", false, jugador);
 
     nivel3.iniciar();
